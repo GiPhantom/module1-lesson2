@@ -3,7 +3,6 @@ stages:
   - build
   - test2
   - dev
-  - stade
   - prod
   
 install_env:
