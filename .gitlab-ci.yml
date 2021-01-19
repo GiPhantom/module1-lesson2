@@ -41,7 +41,7 @@ deploy website:
  #  when: manual
    tags:
      - shell
-   only
+   only:
      refs:
       - tags
       - master
