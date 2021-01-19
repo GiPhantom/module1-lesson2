@@ -35,13 +35,13 @@ tests_after_build:
 deploy website:
    stage: dev
    script:
-#     - cp -rf ./html/* /var/html
+     - cp -rf ./html/* /var/html
      #- ./deploy.sh
      - echo 'running ./build.sh'
  #  when: manual
    tags:
      - shell
-   only:
+   only
      refs:
       - tags
       - master
