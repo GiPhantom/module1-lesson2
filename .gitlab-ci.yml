@@ -40,7 +40,7 @@ deploy website:
      - echo 'running ./build.sh'
    when: manual
    tags:
-     - stage shell
+     - shell
    only:
      refs:
       - tags
