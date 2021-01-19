@@ -1,0 +1,63 @@
+stages:
+  - test
+  - build
+  - test2
+  - dev
+  - stade
+  - prod
+  
+install_env:
+   stage: test
+   script:
+     - echo " test 1------------------------- "
+    
+run tests:
+   stage: test
+   script:
+     - echo " test 2------------------------- "
+   
+linters:
+   stage: test
+   script:
+     - echo " test linter--------------------- "
+
+build:
+   stage: build
+   script:
+#     - ./build.sh
+    - echo 'running ./build.sh' 
+#  when: manual
+
+tests_after_build:
+   stage: test2
+   script:
+     - echo " tests_after_build 1--------------------- "
+
+deploy website:
+   stage: dev
+   script:
+     - cp -rf ./html/* /var/www/html
+     - ./deploy.sh
+     - echo 'running ./build.sh'
+   when: manual
+   tags:
+     - stage shell
+   only:
+     refs:
+      - tags
+      - master
+      - /^release.*$/
+      
+    
+deploy prod:
+   stage: prod
+   script:
+#     - ./deploy.sh
+      - echo 'running ./build.sh'
+   when: manual
+   only:
+     refs:
+      - tags
+      - master
+      - /^release.*$/
+
