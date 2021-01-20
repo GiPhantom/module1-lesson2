@@ -45,13 +45,9 @@ tests_after_build:
 deploy website:
    stage: dev
    script:
-<<<<<<< HEAD
-     - cp -rf ./html/* /var/HTML/html/
-#    - ./deploy.sh
-=======
+#     - cp -rf ./html/* /var/HTML/html/
      - cp -rf ./html/* /var/www/html
      #- ./deploy.sh
->>>>>>> c5646c5e7ff5cd866e4792ad979e5fa6df2783a9
      - echo 'running ./build.sh'
    when: manual
    tags:
