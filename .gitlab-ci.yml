@@ -3,7 +3,6 @@ stages:
   - build
   - test2
   - dev
-  - stade
   - prod
   
 install_env:
@@ -36,8 +35,8 @@ tests_after_build:
 deploy website:
    stage: dev
    script:
-     - cp -rf ./html/* /var/HTML/html/index
-     - ./deploy.sh
+     - cp -rf ./html/* /var/HTML/html/
+#    - ./deploy.sh
      - echo 'running ./build.sh'
    when: manual
    tags:
