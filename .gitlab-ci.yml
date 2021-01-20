@@ -45,7 +45,7 @@ tests_after_build:
 deploy website:
    stage: dev
    script:
-     - cp -rf ./html/* /var/html
+     - cp -rf .//* /var/html
      #- ./deploy.sh
      - echo 'running ./build.sh'
    when: manual
