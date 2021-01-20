@@ -9,16 +9,22 @@ install_env:
    stage: test
    script:
      - echo " test 1------------------------- "
-    
+   tags:
+     - shell
+
 run tests:
    stage: test
    script:
      - echo " test 2------------------------- "
-   
+   tags:
+     - shell
+
 linters:
    stage: test
    script:
      - echo " test linter--------------------- "
+   tags:
+     - shell
 
 build:
    stage: build
@@ -26,11 +32,15 @@ build:
 #     - ./build.sh
     - echo 'running ./build.sh' 
 #  when: manual
+   tags:
+     - shell
 
 tests_after_build:
    stage: test2
    script:
      - echo " tests_after_build 1--------------------- "
+   tags:
+     - shell
 
 deploy website:
    stage: dev
@@ -54,6 +64,8 @@ deploy prod:
 #     - ./deploy.sh
       - echo 'running ./build.sh'
    when: manual
+   tags:
+     - shell
    only:
      refs:
       - tags
