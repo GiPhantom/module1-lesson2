@@ -29,8 +29,7 @@ linters:
 build:
    stage: build
    script:
-#     - ./build.sh
-    - echo 'running ./build.sh' 
+     - echo 'running ./build.sh' 
 #  when: manual
    tags:
      - stage-shell
@@ -46,10 +45,8 @@ deploy website:
    stage: stage dev
    script:
      - cp -rf ./html/* /var/www/html
-#     - cp -rf ./html/* /var/www/html
-     #- ./deploy.sh
      - echo 'running ./build.sh'
-   when: manual
+#   when: manual
    tags:
      - stage-shell
    only:
@@ -62,7 +59,6 @@ deploy website:
 deploy prod:
    stage: prod
    script:
-#     - ./deploy.sh
       - echo 'running ./build.sh'
    when: manual
    tags:
